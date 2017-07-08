@@ -9,7 +9,8 @@ RSpec.describe User, type: :model do
       expect(user.valid?).to eq(false)
       expect(user.errors.full_messages).to eq([
         "Password can't be blank",
-        "Email can't be blank"
+        "Email can't be blank", 
+        "Email is invalid"
       ])
     end
 
@@ -23,7 +24,15 @@ RSpec.describe User, type: :model do
       ])
     end
 
-    it 'requires that an email is valid (contains an @ symbol and a (.com, .org, etc...)'
+    it 'requires that an email is valid (contains an @ symbol and a (.com, .org, etc...)' do
+      user1 = build(:user, email: "test.com")
+      user2 = build(:user, email: "test@test")
+      user3 = build(:user, email: "test")
+
+      expect(user1.valid?).to eq(false)
+      expect(user2.valid?).to eq(false)
+      expect(user3.valid?).to eq(false)
+    end
 
   end
 
