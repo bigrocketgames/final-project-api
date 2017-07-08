@@ -1,10 +1,10 @@
 FactoryGirl.define do
   factory :user do
-    email "MyString"
-    password_digest "MyString"
-    first_name "MyString"
-    last_name "MyString"
-    city "MyString"
-    state "MyString"
+    email "test@test.com"
+    password_digest "password"
+    first_name "Tester"
+    last_name "Testing"
+    city "City"
+    state "State"
   end
 end
