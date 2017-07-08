@@ -49,8 +49,14 @@ RSpec.describe User, type: :model do
 
   describe 'relationships' do
 
-    it 'has many favorite teams'
+    it 'has many favorite teams' do
+      user = create(:user)
+      user.teams.create(team_name: "wsu", mascot: "cougars", sport_id: 1)
+      user.teams.create(team_name: "uw", mascot: "huskies", sport_id: 1)
 
+      expect(user.teams.length).to eq(2)
+    end
+    
     it 'has many friends'
 
     it 'has many messages'
