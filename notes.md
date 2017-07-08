@@ -54,7 +54,8 @@ games
     away_team_id 
   Relationships 
     belongs_to home team 
-    belongs_to away team 
+    belongs_to away team
+    has_one chat room
   Class Methods (DB scopes) 
   
   Instance Methods
