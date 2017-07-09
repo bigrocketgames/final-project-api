@@ -56,8 +56,6 @@ RSpec.describe User, type: :model do
 
       expect(user.teams.length).to eq(2)
     end
-    
-    it 'has many friends'
 
     it 'has many messages'
 
