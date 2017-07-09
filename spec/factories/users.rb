@@ -4,7 +4,5 @@ FactoryGirl.define do
     password "password"
     first_name "Tester"
     last_name "Testing"
-    city "City"
-    state "State"
   end
 end
