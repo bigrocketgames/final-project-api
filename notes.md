@@ -26,7 +26,7 @@ sports
   Relationships 
     has_many teams 
   Class Methods (DB scopes) 
-  
+    scope to sort by sport type
   Instance Methods
 
 teams 
