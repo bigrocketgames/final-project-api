@@ -13,7 +13,7 @@ users
     state 
   Relationships 
     has_many messages 
-    has_many favorite teams through user_teams join table has_many friends 
+    has_many favorite teams through user_teams join table
   Class Methods (DB scopes) 
   
   instance Methods
@@ -22,7 +22,7 @@ sports
   Stories 
     sport_names 
   Columns 
-    name 
+    sport_name 
   Relationships 
     has_many teams 
   Class Methods (DB scopes) 
