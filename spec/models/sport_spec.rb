@@ -14,8 +14,8 @@ RSpec.describe Sport, type: :model do
   describe 'relationships' do
     it 'has many teams' do
       sport = create(:sport)
-      sport.teams.create(team_name: "wsu", mascot: "cougars")
-      sport.teams.create(team_name: "uw", mascot: "huskies")
+      sport.teams.create(name: "wsu", mascot: "cougars")
+      sport.teams.create(name: "uw", mascot: "huskies")
 
       expect(sport.teams.length).to eq(2)
     end
