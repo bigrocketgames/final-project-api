@@ -59,6 +59,7 @@ games
   Class Methods (DB scopes) 
   
   Instance Methods
+    
 
 messages 
   Stories 
@@ -78,13 +79,15 @@ chat rooms
   Stories 
     current chatters 
   Columns
-
+    game_id
   Relationships 
-    has_many chatters 
-    has_many messages 
+    has_many chatters through messages
+    has_many messages
+    belongs_to game
   Class Methods (DB scopes) 
   
   Instance Methods
+    ChatRoomName
 
 favorite_teams_join_table
   userID
