@@ -24,7 +24,6 @@ RSpec.describe Team, type: :model do
     end
 
     it 'has many fans through favorite teams'
-    
   end
   
 end
