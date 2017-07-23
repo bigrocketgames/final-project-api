@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
+  has_many :messages
+  has_many :chat_rooms, through: :messages
   has_many :user_teams
   has_many :favorite_teams, through: :user_teams, source: :team
   
