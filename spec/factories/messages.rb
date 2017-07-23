@@ -2,6 +2,6 @@ FactoryGirl.define do
   factory :message do
     content "MyText"
     user
-    chatRoom
+    chat_room
   end
 end
