@@ -51,10 +51,10 @@ RSpec.describe User, type: :model do
 
     it 'has many favorite teams' do
       user = create(:user)
-      user.teams.create(team_name: "wsu", mascot: "cougars", sport_id: 1)
-      user.teams.create(team_name: "uw", mascot: "huskies", sport_id: 1)
+      user.favorite_teams.create(name: "wsu", mascot: "cougars", sport_id: 1)
+      user.favorite_teams.create(name: "uw", mascot: "huskies", sport_id: 1)
 
-      expect(user.teams.length).to eq(2)
+      expect(user.favorite_teams.length).to eq(2)
     end
 
     it 'has many messages'
