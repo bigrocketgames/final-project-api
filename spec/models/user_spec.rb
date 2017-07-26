@@ -57,7 +57,34 @@ RSpec.describe User, type: :model do
       expect(user.favorite_teams.length).to eq(2)
     end
 
-    it 'has many messages'
+    it 'has many messages' do
+      @user = create(:user)
+      @sport = create(:sport)
+      @home_team = create(:home_team, sport_id: @sport.id)
+      @away_team = create(:away_team, sport_id: @sport.id)
+      @game = create(:game, home_team_id: @home_team.id, away_team_id: @away_team.id)
+      @chat_room = create(:chat_room, game_id: @game.id)
+      message1 = create(:message, user_id: @user.id, chat_room_id: @chat_room.id)
+      message2 = create(:message, user_id: @user.id, chat_room_id: @chat_room.id)
+
+      expect(@user.messages.length).to eq(2)
+    end
+
+    it 'has many chat rooms through messages' do
+      @user = create(:user)
+      @sport = create(:sport)
+      @home_team = create(:home_team, sport_id: @sport.id)
+      @away_team = create(:away_team, sport_id: @sport.id)
+      @game = create(:game, home_team_id: @home_team.id, away_team_id: @away_team.id)
+      @game2 = create(:game, home_team_id: @away_team.id, away_team_id: @home_team.id)
+      @chat_room = create(:chat_room, game_id: @game.id)
+      @chat_room2 = create(:chat_room, game_id: @game2.id)
+      message1 = create(:message, user_id: @user.id, chat_room_id: @chat_room.id)
+      message2 = create(:message, user_id: @user.id, chat_room_id: @chat_room.id)
+      message3 = create(:message, user_id: @user.id, chat_room_id: @chat_room2.id)
+
+      expect(@user.chat_rooms.length).to_not eq(0)
+    end
 
   end
 
