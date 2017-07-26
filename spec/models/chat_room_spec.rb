@@ -20,10 +20,9 @@ RSpec.describe ChatRoom, type: :model do
     end
 
     it 'requires game_id to be unique' do
-      chat_room = create(:chat_room, game_id: @game.id)
       chat_room1 = build(:chat_room, game_id: @game.id)
 
-      expect(chat_room.valid?).to eq(true)
+      expect(@game.chat_room.valid?).to eq(true)
       expect(chat_room1.valid?).to eq(false)
       expect(chat_room1.errors.full_messages).to eq([
         "Game has already been taken"
