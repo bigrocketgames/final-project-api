@@ -25,10 +25,8 @@ RSpec.describe Game, type: :model do
   end
 
   describe 'relationships' do
-    it 'has one chat room' do
-      chat_room = create(:chat_room, game_id: @game.id)
-
-      expect(@game.chat_room.id).to eq(chat_room.id)
+    it 'has one chat room created after_create of game' do
+      expect(@game.chat_room.id).to_not eq(nil)
     end
 
     it 'belongs to home team' do
