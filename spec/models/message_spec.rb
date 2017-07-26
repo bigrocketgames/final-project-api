@@ -13,7 +13,7 @@ RSpec.describe Message, type: :model do
 
   describe 'validations' do
     it 'requires content, user_id, and chatRoom_id on creation' do
-      message = build(:message, user_id: @user.id, chat_room_id: @chat_room.id)
+      message = create(:message, user_id: @user.id, chat_room_id: @chat_room.id)
       message1 = build(:message, user_id: nil, chat_room_id: nil)
 
       expect(message.valid?).to eq(true)
@@ -40,13 +40,13 @@ RSpec.describe Message, type: :model do
 
   describe 'relationships' do
     it 'belongs_to a user' do
-      message = build(:message, content: nil, user_id: @user.id, chat_room_id: @chat_room.id)
+      message = create(:message, user_id: @user.id, chat_room_id: @chat_room.id)
 
       expect(message.user).to_not eq(nil)
     end
 
     it 'belongs_to a chatRoom' do
-      message = build(:message, content: nil, user_id: @user.id, chat_room_id: @chat_room.id)
+      message = create(:message, user_id: @user.id, chat_room_id: @chat_room.id)
 
       expect(message.chat_room).to_not eq(nil)
     end
