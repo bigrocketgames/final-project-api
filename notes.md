@@ -40,9 +40,8 @@ teams
     belongs_to sport 
     has_many fans through user_teams join table 
   Class Methods (DB scopes) 
-  
-  Instance Methods 
-    create schedule
+    list games of the team by date.
+  Instance Methods
 
 games 
   Stories 
@@ -57,8 +56,9 @@ games
     belongs_to away team
     has_one chat room
   Class Methods (DB scopes) 
-  
+    general list of games by date.
   Instance Methods
+    after creation of game - create the chat room for that game.
     
 
 messages 
