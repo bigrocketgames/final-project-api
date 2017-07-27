@@ -51,8 +51,8 @@ RSpec.describe User, type: :model do
 
     it 'has many favorite teams' do
       user = create(:user)
-      user.favorite_teams.create(name: "wsu", mascot: "cougars", sport_id: 1)
-      user.favorite_teams.create(name: "uw", mascot: "huskies", sport_id: 1)
+      user.favorite_teams.create(name: "wsu", mascot: "cougars", sub_sport_id: 1)
+      user.favorite_teams.create(name: "uw", mascot: "huskies", sub_sport_id: 1)
 
       expect(user.favorite_teams.length).to eq(2)
     end
@@ -60,8 +60,9 @@ RSpec.describe User, type: :model do
     it 'has many messages' do
       @user = create(:user)
       @sport = create(:sport)
-      @home_team = create(:home_team, sport_id: @sport.id)
-      @away_team = create(:away_team, sport_id: @sport.id)
+      @sub_sport = create(:sub_sport, sport_id: @sport.id)
+      @home_team = create(:home_team, sub_sport_id: @sub_sport.id)
+      @away_team = create(:away_team, sub_sport_id: @sub_sport.id)
       @game = create(:game, home_team_id: @home_team.id, away_team_id: @away_team.id)
       message1 = create(:message, user_id: @user.id, chat_room_id: @game.chat_room.id)
       message2 = create(:message, user_id: @user.id, chat_room_id: @game.chat_room.id)
@@ -72,8 +73,9 @@ RSpec.describe User, type: :model do
     it 'has many chat rooms through messages' do
       @user = create(:user)
       @sport = create(:sport)
-      @home_team = create(:home_team, sport_id: @sport.id)
-      @away_team = create(:away_team, sport_id: @sport.id)
+      @sub_sport = create(:sub_sport, sport_id: @sport.id)
+      @home_team = create(:home_team, sub_sport_id: @sub_sport.id)
+      @away_team = create(:away_team, sub_sport_id: @sub_sport.id)
       @game = create(:game, home_team_id: @home_team.id, away_team_id: @away_team.id)
       @game2 = create(:game, home_team_id: @away_team.id, away_team_id: @home_team.id)
       message1 = create(:message, user_id: @user.id, chat_room_id: @game.chat_room.id)

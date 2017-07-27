@@ -5,8 +5,9 @@ RSpec.describe Message, type: :model do
   before(:each) do
     @user = create(:user)
     @sport = create(:sport)
-    @home_team = create(:home_team, sport_id: @sport.id)
-    @away_team = create(:away_team, sport_id: @sport.id)
+    @sub_sport = create(:sub_sport, sport_id: @sport.id)
+    @home_team = create(:home_team, sub_sport_id: @sub_sport.id)
+    @away_team = create(:away_team, sub_sport_id: @sub_sport.id)
     @game = create(:game, home_team_id: @home_team.id, away_team_id: @away_team.id)
   end
 

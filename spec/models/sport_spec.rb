@@ -22,12 +22,12 @@ RSpec.describe Sport, type: :model do
   end
 
   describe 'relationships' do
-    it 'has many teams' do
+    it 'has many sub sports' do
       sport = create(:sport)
-      sport.teams.create(name: "wsu", mascot: "cougars")
-      sport.teams.create(name: "uw", mascot: "huskies")
+      sport.sub_sports.create(name: "NFL", conference_split: true)
+      sport.sub_sports.create(name: "NCAAF", conference_split: true)
 
-      expect(sport.teams.length).to eq(2)
+      expect(sport.sub_sports.length).to eq(2)
     end
   end
   
