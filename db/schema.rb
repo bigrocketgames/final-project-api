@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170723001724) do
+ActiveRecord::Schema.define(version: 20170726233337) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,13 +44,20 @@ ActiveRecord::Schema.define(version: 20170723001724) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "sub_sports", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "conference_split"
+    t.integer  "sport_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
   create_table "teams", force: :cascade do |t|
     t.string   "name"
     t.string   "mascot"
-    t.integer  "sport_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["sport_id"], name: "index_teams_on_sport_id", using: :btree
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "sub_sport_id"
   end
 
   create_table "user_teams", force: :cascade do |t|
@@ -71,7 +78,6 @@ ActiveRecord::Schema.define(version: 20170723001724) do
     t.datetime "updated_at",      null: false
   end
 
-  add_foreign_key "teams", "sports"
   add_foreign_key "user_teams", "teams"
   add_foreign_key "user_teams", "users"
 end
