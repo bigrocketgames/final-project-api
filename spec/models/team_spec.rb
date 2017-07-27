@@ -31,5 +31,13 @@ RSpec.describe Team, type: :model do
       expect(team.fans.length).to eq(2)
     end
   end
+
+  context 'after_create' do
+    it 'adds a fullname to the team' do
+      team = create(:home_team)
+
+      expect(team.fullName).to eq(team.name + " " + team.mascot)
+    end
+  end
   
 end
