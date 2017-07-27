@@ -10,7 +10,7 @@ class Game < ApplicationRecord
   private
 
   def createChatRoom
-    self.create_chat_room(game_id: self.id)
+    chatRoom = self.create_chat_room(game_id: self.id)
+    self.update(chat_room_id: chatRoom.id)
   end
-
 end
