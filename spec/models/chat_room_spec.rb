@@ -32,7 +32,19 @@ RSpec.describe ChatRoom, type: :model do
   end
   
   describe 'relationships' do
+    it 'belongs to a game' do
+      chat_room = ChatRoom.find_by(game_id: @game.id)
 
+      expect(chat_room).to_not eq(nil)
+    end
+  end
+
+  context 'after_create' do
+    it 'adds a name' do
+      chat_room = ChatRoom.find_by(game_id: @game.id)
+
+      expect(chat_room.name).to_not eq(nil)
+    end
   end
   
 end
