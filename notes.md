@@ -20,22 +20,38 @@ users
 
 sports 
   Stories 
-    sport_names 
+    sport_names - Football, Soccer, etc.
   Columns 
     sport_name 
   Relationships 
-    has_many teams 
+    has_many sub-sports 
   Class Methods (DB scopes) 
     scope to sort by sport type
   Instance Methods
 
+sub-sports
+  Stories
+    sub-sport names under the sport heading - NFL, NCAAF, NCAA_MBB, Bundesliga, Premier League, etc.
+  Columns
+    subSport_name
+    conference_split - t/f
+  Relationships
+    belongs_to sport
+    has_many teams
+  Class Methods (DB scopes)
+    
+  Instance Methods
+
 teams 
   Stories 
-  
+    A team may have a division split and conference name - will use this if in the sub-sport category conference_split is true.
   Columns 
     team_name 
     mascot 
     sport_id 
+    conference_and_division_split - t/f
+    conference_name
+    division_split_name
   Relationships 
     belongs_to sport 
     has_many fans through user_teams join table 
@@ -47,8 +63,7 @@ games
   Stories 
     has two teams and a date 
   Columns 
-    game_date 
-    game_time 
+    game_date - entered in UTC - adjust for time zones?
     home_team_id 
     away_team_id 
   Relationships 
