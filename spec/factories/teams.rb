@@ -8,12 +8,12 @@ FactoryGirl.define do
   factory :home_team, parent: :team do
     name "Denver"
     mascot "Broncos"
-    sub_sport_id 1
+    sub_sport
   end
 
   factory :away_team, parent: :team do
     name "Los Angeles"
     mascot "Rams"
-    sub_sport_id 1
+    sub_sport
   end
 end
