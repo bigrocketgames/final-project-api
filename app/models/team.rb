@@ -4,7 +4,7 @@ class Team < ApplicationRecord
   has_many :fans, through: :user_teams, source: :user
 
   after_create :addFullName
-  validates :name, :mascot, :sub_sport, presence: true
+  validates :name, :mascot, :sub_sport, :home_location, presence: true
   validate :no_duplicate_team
 
   def no_duplicate_team
