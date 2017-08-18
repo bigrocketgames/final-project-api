@@ -7,6 +7,8 @@ class Game < ApplicationRecord
 
   validates :game_time, :home_team_id, :away_team_id, presence: true
 
+  # need to add custom validation to verify no duplicate games with exact same teams at exact same time.
+
   private
 
   def createChatRoom
