@@ -3,14 +3,15 @@ require 'rails_helper'
 RSpec.describe Team, type: :model do
   describe 'validations' do
     it 'requires a name, mascot, and sport upon creation' do
-      team = build(:team, name: nil, mascot: nil, sub_sport: nil)
+      team = build(:team, name: nil, mascot: nil, sub_sport: nil, home_location: nil)
 
       expect(team.valid?).to eq(false)
       expect(team.errors.full_messages).to eq([
         "Sub sport must exist",
         "Sub sport can't be blank",
         "Name can't be blank",
-        "Mascot can't be blank"
+        "Mascot can't be blank",
+        "Home location can't be blank"
       ])
     end
     
