@@ -8,6 +8,7 @@ RSpec.describe Game, type: :model do
     @away_team = create(:away_team, sub_sport_id: @sub_sport.id)
     @game = create(:game, home_team_id: @home_team.id, away_team_id: @away_team.id)
     @game1 = build(:game, home_team_id: nil, away_team_id: nil, game_time: nil)
+    @game2 = create(:game, home_team_id: @home_team.id, away_team_id: @away_team.id, location: "Seattle, WA")
   end
 
   describe 'validations' do
@@ -42,6 +43,14 @@ RSpec.describe Game, type: :model do
   context 'after create' do
     it 'creates the chatroom for the game after_create' do
       expect(@game.chat_room).to_not eq(nil)
+    end
+
+    it 'adds the default location to the game' do
+      expect(@game.location).to eq(@game.home_team.home_location)
+    end
+
+    it 'does not add default location to the game if another one is already specified' do
+      expect(@game2.location).to eq("Seattle, WA")
     end
   end
 
