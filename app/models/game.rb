@@ -4,10 +4,19 @@ class Game < ApplicationRecord
   belongs_to :away_team, class_name: "Team"
 
   after_create :createChatRoom, :addGameLocation
-
   validates :game_time, :home_team_id, :away_team_id, presence: true
+  validate :no_duplicate_game
 
-  # need to add custom validation to verify no duplicate games with exact same teams at exact same time.
+  def no_duplicate_game
+
+    gameExists = Game.where('home_team_id = ? AND away_team_id = ? AND game_time = ?', self.home_team_id, self.away_team_id, self.game_time)
+
+    # binding.pry
+
+    if gameExists.count > 0
+      errors.add(:id, "Can't create duplicate games.")
+    end
+  end
 
   private
 
