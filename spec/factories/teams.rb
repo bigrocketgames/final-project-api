@@ -7,9 +7,9 @@ FactoryGirl.define do
   end
 
   factory :home_team, parent: :team do
-    name "Denver"
-    mascot "Broncos"
-    home_location "Denver, CO"
+    name "Kansas City"
+    mascot "Chiefs"
+    home_location "Kansas City, MO"
     sub_sport
   end
 
@@ -19,4 +19,20 @@ FactoryGirl.define do
     home_location "Los Angeles, CA"
     sub_sport
   end
+
+  factory :spare_home_team, parent: :team do
+    name "Oakland"
+    mascot "Raiders"
+    home_location "Oakland, CA"
+    sub_sport
+  end
+
+  factory :spare_away_team, parent: :team do
+    name "Arizona"
+    mascot "Cardinals"
+    home_location "Glendale, AZ"
+    sub_sport
+  end
+
+  
 end
