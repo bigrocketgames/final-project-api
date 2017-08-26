@@ -24,6 +24,7 @@ RSpec.describe "Api::V1::Users", Type: :request do
         expect(body['user']['email']).to eq("test@test.com")
         expect(body['user']['password_digest']).to eq(nil)
         expect(body['token']).not_to eq(nil)
+        
       end
       
       it "returns the new user and a JWT token" 
