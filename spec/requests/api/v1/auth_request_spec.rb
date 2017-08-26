@@ -4,9 +4,16 @@ RSpec.describe "Api::V1::Auth", Type: :request do
 
   describe "POST /auth" do
 
-    describe "on success" do
+    before(:each) do
+      User.create(
+        email: "test@test.com",
+        password: "password"
+      )
+    end
 
-      before(:each) do
+    describe "on success" do
+      
+      it "returns the existing user and a JWT token" do
         params = {
           user: {
             email: "test@test.com",
@@ -18,11 +25,7 @@ RSpec.describe "Api::V1::Auth", Type: :request do
           params: params.to_json,
           headers: { 'Content-Type': 'application/json' }
 
-        @response = response
-      end
-      
-      it "returns the existing user and a JWT token" do
-        body = JSON.parse(@response.body)
+        body = JSON.parse(response.body)
         
         expect(response.status).to eq(200)
         expect(body['user']['id']).not_to eq(nil)
@@ -33,13 +36,6 @@ RSpec.describe "Api::V1::Auth", Type: :request do
     end
 
     describe "on error" do
-
-      before(:each) do
-        User.create(
-          email: "test@test.com",
-          password: "password"
-        )
-      end
 
       it "unable to find user with email" do
         params = {
@@ -55,7 +51,7 @@ RSpec.describe "Api::V1::Auth", Type: :request do
 
         body = JSON.parse(response.body)
 
-        expect(response.status).to eq(403)
+        expect(response.status).to eq(500)
         expect(body["errors"]).to eq({
           "email"=>["Unable to find a user with the provided email address"]
         })
@@ -75,7 +71,7 @@ RSpec.describe "Api::V1::Auth", Type: :request do
 
         body = JSON.parse(response.body)
 
-        expect(response.status).to eq(403)
+        expect(response.status).to eq(500)
         expect(body["errors"]).to eq({
           "password"=>["password does not match the provided email"]
         })
