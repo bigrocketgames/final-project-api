@@ -1,4 +1,4 @@
-class SportsController < ApplicationController
+class Api::V1::SportsController < ApplicationController
 
   def create
     @sport = Sport.new(sport_params)
