@@ -3,4 +3,5 @@ class SubSport < ApplicationRecord
   has_many :teams
 
   validates :name, :conference_split, :sport_id, presence: true
+  validates :name, uniqueness: true
 end
