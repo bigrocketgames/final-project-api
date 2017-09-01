@@ -107,3 +107,41 @@ chat rooms
 favorite_teams_join_table
   userID
   teamID
+
+
+
+  ##Routes
+    
+    ## Users
+    POST  /users
+    PATCH /users/:id
+    PUT   /users/:id
+    
+    ## Authorization
+    POST  /auth
+    POST  /auth/refresh
+
+    ## Teams
+    POST  /teams
+    PATCH /teams/:id
+    PUT   /teams/:id
+
+    ## Messages
+    POST    /messages
+    DELETE  /messages/:id
+
+    ## Sport
+    POST  /sports
+
+    ## SubSport
+    POST  /subsports
+
+    ## Game
+    POST  /games
+    PATCH /games/:id
+    PUT   /games/:id
+
+    ## Chat Room
+    PATCH /chat_rooms/:id
+    PUT   /chat_rooms/:id
+    
