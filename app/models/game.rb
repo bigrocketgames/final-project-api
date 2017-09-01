@@ -11,8 +11,6 @@ class Game < ApplicationRecord
 
     gameExists = Game.where('home_team_id = ? AND away_team_id = ? AND game_time = ?', self.home_team_id, self.away_team_id, self.game_time)
 
-    # binding.pry
-
     if gameExists.count > 0
       errors.add(:id, "Can't create duplicate games.")
     end
