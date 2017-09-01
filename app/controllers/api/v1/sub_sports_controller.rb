@@ -5,7 +5,7 @@ class Api::V1::SubSportsController < ApplicationController
 
     if @subSport.save
       render json: {
-        subSport: @subSport
+        sub_sport: @subSport
       }
     else
       render json: {
