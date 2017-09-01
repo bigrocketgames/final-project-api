@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Api::V1::Sports", Type: :sport do
+RSpec.describe "Api::V1::Sports", Type: :request do
 
   describe "POST /sports" do
     
