@@ -180,7 +180,7 @@ DEPENDENCIES
   rack-cors
   rails (~> 5.0.4)
   rails-controller-testing
-  redis (~> 3.0)
+  redis (~> 3.2)
   rspec-rails
   spring
   spring-watcher-listen (~> 2.0.0)
