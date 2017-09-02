@@ -16,7 +16,7 @@ Rails.application.routes.draw do
       resources :messages, only: [:create, :destroy]
 
       # /api/vi/sub_sports
-      resources :sub_sports, only: [:create]
+      resources :sub_sports, only: [:create, :destroy]
 
       # /api/v1/sports
       resources :sports, only: [:create]
