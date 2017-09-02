@@ -3,7 +3,7 @@ class Api::V1::GamesController < ApplicationController
   def create
     game = Game.new(game_params)
 
-    if Game.save
+    if game.save
       render json: game
     else
       render json: {
