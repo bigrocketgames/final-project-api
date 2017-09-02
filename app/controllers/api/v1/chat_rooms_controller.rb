@@ -20,7 +20,7 @@ class Api::V1::ChatRoomsController < ApplicationController
     else
       render json: {
         errors: chatRoom.errors
-      }, status: 400
+      }, status: 403
     end
 
   private
