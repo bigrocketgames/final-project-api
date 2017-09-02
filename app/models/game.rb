@@ -25,6 +25,7 @@ class Game < ApplicationRecord
 
   def addGameLocation
     self.location = self.home_team.home_location if self.location.nil?
+    self.save
   end
 
 end
