@@ -17,13 +17,7 @@ class Api::V1::SubSportsController < ApplicationController
   def destroy
     @subSport = SubSport.find(params[:id])
     
-    if @subSport
-      @subSport.destroy
-    else
-      render json: {
-        errors: "No such sub sport exists"
-      }, status: 400
-    end
+    @subSport.destroy if @subSport
   end
 
   private
