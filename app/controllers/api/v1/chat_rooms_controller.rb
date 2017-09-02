@@ -26,7 +26,8 @@ class Api::V1::ChatRoomsController < ApplicationController
         errors: chatRoom.errors
       }, status: 403
     end
-
+  end
+  
   private
 
   def chat_room_params
