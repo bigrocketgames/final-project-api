@@ -10,16 +10,16 @@ Rails.application.routes.draw do
       post '/auth/refresh', to: "auth#refresh"
 
       # /api/v1/teams
-      resources :teams, only: [:create, :update]
+      resources :teams, only: [:index, :create, :update]
 
       # /api/v1/messages
       resources :messages, only: [:create, :destroy]
 
       # /api/vi/sub_sports
-      resources :sub_sports, only: [:create, :destroy]
+      resources :sub_sports, only: [:index, :create, :destroy]
 
       # /api/v1/sports
-      resources :sports, only: [:create]
+      resources :sports, only: [:index, :create]
 
       # /api/v1/games
       resources :games, only: [:create, :update]
