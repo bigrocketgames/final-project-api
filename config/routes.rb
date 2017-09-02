@@ -25,7 +25,7 @@ Rails.application.routes.draw do
       resources :games, only: [:create, :update]
 
       # /api/v1/chat_rooms
-      resources :chat_rooms, only: [:create, :update]
+      resources :chat_rooms, only: [:create, :show, :update]
     end
   end
 end

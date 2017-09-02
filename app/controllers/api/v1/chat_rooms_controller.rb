@@ -12,6 +12,10 @@ class Api::V1::ChatRoomsController < ApplicationController
     end
   end
 
+  def show
+    chat_room = ChatRoom.includes(:messages).find_by(id: params[:id])
+  end
+
   def update
     chatRoom = ChatRoom.find(params[:id])
 
