@@ -1,5 +1,11 @@
 class Api::V1::SubSportsController < ApplicationController
 
+  def index
+    @subSports = SubSport.all
+
+    render json: @subSports
+  end
+
   def create
     @subSport = SubSport.new(subSport_params)
 
