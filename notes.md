@@ -145,3 +145,5 @@ favorite_teams_join_table
     PATCH /chat_rooms/:id
     PUT   /chat_rooms/:id
     
+
+    #### test putting in messages and seeing if they show when making call to /chat_rooms/:id
